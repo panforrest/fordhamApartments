@@ -7,7 +7,7 @@ const router = vertex.router()
 	Data is rendered using the Mustache templating engine. For more
 	information, view here: https://mustache.github.io/#demo */
 router.get('/', function(req, res){
-	res.render('index', {text: 'This is the dynamic data. Open index.js from the routes directory to see.'})
+	res.render("index", { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] })
 })
 
 /*  This route render json data */
