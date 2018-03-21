@@ -6,8 +6,14 @@ const router = vertex.router()
 /*  This is the home route. It renders the index.mustache page from the views directory.
 	Data is rendered using the Mustache templating engine. For more
 	information, view here: https://mustache.github.io/#demo */
+
+const apartments = [
+    {title: 'greatest apartment', img: 'accom-1.jpg'},
+    {title: 'elevator apartment', img: 'accom-2.jpg'}
+]
+
 router.get('/', function(req, res){
-	res.render("index", { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] })
+	res.render("index", { data: apartments})
 })
 
 /*  This route render json data */
