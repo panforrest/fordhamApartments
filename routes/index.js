@@ -13,15 +13,18 @@ const router = vertex.router()
 // ]
 
 router.get('/', function(req, res){
-	const apartments = [
-	    {title: 'NYC great find', numBeds: 1},
-	    {title: 'Elevator Apt', numBeds: 2},
-	    {title: 'Backyard Apt', numBeds: 3}
-	]
+    // turbo.fetch('apartment', null)
+    turbo.fetch('apartment', { title: 'Backyard Apt'} )
+    .then(data => {
+    	console.log(JSON.stringify(data))
+    	res.render("index", { data: data})
+    })
+    .catch(err => {
+    	console.log(JSON.stringify(err))
+    	return
+    })
 
-    turbo.create('apartment', {title: 'Backyard Apt', numBeds: 3})
-
-	res.render("index", { data: apartments})
+	// res.render("index", { data: apartment})
 })
 
 /*  This route render json data */
