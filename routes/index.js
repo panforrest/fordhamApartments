@@ -7,12 +7,20 @@ const router = vertex.router()
 	Data is rendered using the Mustache templating engine. For more
 	information, view here: https://mustache.github.io/#demo */
 
-const apartments = [
-    {title: 'greatest apartment', img: 'accom-1.jpg'},
-    {title: 'elevator apartment', img: 'accom-2.jpg'}
-]
+// const apartments = [
+//     {title: 'greatest apartment', img: 'accom-1.jpg'},
+//     {title: 'elevator apartment', img: 'accom-2.jpg'}
+// ]
 
 router.get('/', function(req, res){
+	const apartments = [
+	    {title: 'NYC great find', numBeds: 1},
+	    {title: 'Elevator Apt', numBeds: 2},
+	    {title: 'Backyard Apt', numBeds: 3}
+	]
+
+    turbo.create('apartment', {title: 'Backyard Apt', numBeds: 3})
+
 	res.render("index", { data: apartments})
 })
 
