@@ -12,9 +12,9 @@ const router = vertex.router()
 //     {title: 'elevator apartment', img: 'accom-2.jpg'}
 // ]
 
-router.get('/', function(req, res){
-    // turbo.fetch('apartment', null)
-    turbo.fetch('apartment', { title: 'Backyard Apt'} )
+router.get('/:resource', function(req, res){
+    console.log(req.params.resource)
+    turbo.fetch('apartment', { title: req.params.resource} )
     .then(data => {
     	console.log(JSON.stringify(data))
     	res.render("index", { data: data})
