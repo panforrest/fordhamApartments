@@ -12,19 +12,14 @@ const router = vertex.router()
 //     {title: 'elevator apartment', img: 'accom-2.jpg'}
 // ]
 
-router.get('/:name/:city/:state', function(req, res){
-    turbo.create('building2', {
-    	name: req.params.name,
-        city: req.params.city,
-        state: req.params.state
-    })
+router.get('/', function(req, res){
+    turbo.fetch('building2', null)
     .then(data => {
-        console.log(JSON.stringify(data))
+    	res.render('building', {data: data})
     })
     .catch(err => {
-
+        
     })
-    return
 })
 
 /*  This route render json data */
