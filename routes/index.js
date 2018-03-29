@@ -13,12 +13,18 @@ const router = vertex.router()
 // ]
 
 router.get('/:name/:city/:state', function(req, res){
-    res.send(JSON.stringify({
-        name: req.params.name,   //name: someName,
+    turbo.create('building2', {
+    	name: req.params.name,
         city: req.params.city,
         state: req.params.state
-        })
-    )
+    })
+    .then(data => {
+        console.log(JSON.stringify(data))
+    })
+    .catch(err => {
+
+    })
+    return
 })
 
 /*  This route render json data */
